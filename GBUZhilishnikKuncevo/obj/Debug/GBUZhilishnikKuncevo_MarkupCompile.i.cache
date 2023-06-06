@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\mensh\source\repos\GBUZhilishnikKuncevo\GBUZhilishnikKuncevo\App.xaml
-242146773669
+251298655510
 2-1223955081
-55177788438
-21345587702
-MainWindow.xaml;Pages\AccountingAddPage.xaml;Pages\AccountingEditPage.xaml;Pages\AccountingPage.xaml;Pages\AuthPages\AuthorizationPage.xaml;Pages\BankBookAddPage.xaml;Pages\BankBookEditPage.xaml;Pages\BankBookInfoPage.xaml;Pages\BankBookPage.xaml;Pages\ClientAddPage.xaml;Pages\ClientEditPage.xaml;Pages\ClientInfoPage.xaml;Pages\ClientPage.xaml;Pages\CounterAddPage.xaml;Pages\CounterEditPage.xaml;Pages\CounterInfoPage.xaml;Pages\CounterPage.xaml;Pages\DebtorsPage.xaml;Pages\MenuPages\MenuAuthPage.xaml;Pages\MenuPages\MenuPage.xaml;Pages\TotalCheckAddPage.xaml;Pages\ServiceCheckPage.xaml;Pages\TotalCheckPage.xaml;Pages\WelcomePage.xaml;
+571900541831
+22188825925
+MainWindow.xaml;Pages\AccountingAddPage.xaml;Pages\AccountingEditPage.xaml;Pages\AccountingPage.xaml;Pages\AuthPages\AdminProfilePage.xaml;Pages\AuthPages\AuthorizationPage.xaml;Pages\BankBookAddPage.xaml;Pages\BankBookEditPage.xaml;Pages\BankBookInfoPage.xaml;Pages\BankBookPage.xaml;Pages\ClientAddPage.xaml;Pages\ClientEditPage.xaml;Pages\ClientInfoPage.xaml;Pages\ClientPage.xaml;Pages\CounterAddPage.xaml;Pages\CounterEditPage.xaml;Pages\CounterInfoPage.xaml;Pages\CounterPage.xaml;Pages\DebtorsPage.xaml;Pages\MenuPages\MenuAuthPage.xaml;Pages\MenuPages\MenuPage.xaml;Pages\TotalCheckAddPage.xaml;Pages\ServiceCheckPage.xaml;Pages\TotalCheckPage.xaml;Pages\WelcomePage.xaml;
 
-True
+False
 

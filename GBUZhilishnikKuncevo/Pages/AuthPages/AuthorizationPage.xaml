@@ -40,7 +40,8 @@
                          CaretBrush="#FF0850A4"
                          SelectionBrush="#FF0850A4"
                          VerticalAlignment="Top"
-                         Visibility="Hidden"/>
+                         Visibility="Hidden"
+                         TextChanged="TxbPassword_TextChanged"/>
             </GroupBox>
             <Button Name="BtnLogin"
                     Click="BtnLogin_Click"
@@ -52,15 +53,16 @@
                     Style="{StaticResource MaterialDesignFlatButton}" Cursor="Hand"/>
         </StackPanel>
         <GroupBox Style="{StaticResource MaterialDesignHeaderedContentControl}"
-                      Header="Пароль:"
-                      FontSize="20"
-                      Margin="0, 217, 0, 0"
-                      Width="250">
+                  Header="Пароль:"
+                  FontSize="20"
+                  Margin="0, 217, 0, 0"
+                  Width="250">
             <PasswordBox Name="PsbPassword" 
-                             Width="250"
-                             CaretBrush="#FF0850A4"
-                             SelectionBrush="#FF0850A4"
-                             VerticalAlignment="Top"/>
+                         Width="250"
+                         CaretBrush="#FF0850A4"
+                         SelectionBrush="#FF0850A4"
+                         VerticalAlignment="Top"
+                         PasswordChanged="PsbPassword_PasswordChanged"/>
         </GroupBox>
     </Grid>
 </Page>

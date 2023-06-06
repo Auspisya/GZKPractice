@@ -1,7 +1,13 @@
-﻿using GBUZhilishnikKuncevo.Models;
+﻿using GBUZhilishnikKuncevo.Classes;
+using GBUZhilishnikKuncevo.Models;
+using GBUZhilishnikKuncevo.Pages.MenuPages;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,15 +27,59 @@ namespace GBUZhilishnikKuncevo.Pages.AuthPages
     /// </summary>
     public partial class AuthorizationPage : Page
     {
+        string password;
         public AuthorizationPage()
         {
             InitializeComponent();
-            
         }
 
-        private void BtnLogin_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Выполнить вход в систему
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                string url = $"http://localhost/sign-in?login={TxbLogin.Text}&password={password}";
+                HttpClient client = new HttpClient();
+                var response = client.GetAsync(url).Result;
+                var responseContent = await response.Content.ReadAsStringAsync();
+                if (TxbLogin.Text == "" || password == "")
+                {
+                    MessageBox.Show("Заполните все поля!");
+                }
+                else
+                {
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        var _signIn = JsonConvert.DeserializeObject<SignIn>(responseContent);
 
+                        switch (_signIn.roleName)
+                        {
+                            case "Администратор":
+                                MessageBox.Show("Авторизация прошла успешно!");
+                                Navigation.frameNav.Navigate(new WelcomePage());
+                                MenuNavigation.frameNav.Navigate(new MenuPage());
+                                break;
+                            default:
+                                MessageBox.Show("Неверная обработка данных");
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        string descp = JObject.Parse(responseContent).SelectToken("description").ToString();
+                        MessageBox.Show(descp);
+                        //MessageBox.Show(JsonConvert.DeserializeObject(responseContent).ToString());
+                    }
+                }
+            }
+            catch (Exception er)
+            {
+                er.Message.ToString();
+            }
         }
 
         /// <summary>
@@ -54,6 +104,16 @@ namespace GBUZhilishnikKuncevo.Pages.AuthPages
                 PsbPassword.Visibility = Visibility.Visible;
                 CBShowHidePassword.ToolTip = "Показать";
             }
+        }
+
+        private void PsbPassword_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            password = PsbPassword.Password;
+        }
+
+        private void TxbPassword_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            password = TxbPassword.Text;
         }
     }
 }

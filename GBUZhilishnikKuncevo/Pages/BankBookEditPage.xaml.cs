@@ -34,7 +34,7 @@ namespace GBUZhilishnikKuncevo.Pages
             CmbClient.DisplayMemberPath = "fullName";
             CmbClient.SelectedValuePath = "id";
             CmbClient.ItemsSource = DBConnection.DBConnect.Client.ToList();
-            CmbClient.Text = bankBook.Client.fullName.ToString();
+            CmbClient.Text = bankBook.Client.PersonalInfo1.fullName.ToString();
 
             CmbOwnership.DisplayMemberPath = "typeName";
             CmbOwnership.SelectedValuePath = "id";

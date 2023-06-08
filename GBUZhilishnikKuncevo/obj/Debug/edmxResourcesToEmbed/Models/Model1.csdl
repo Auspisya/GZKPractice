@@ -76,20 +76,13 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="phoneNumber" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="passportId" Type="Int32" Nullable="false" />
     <Property Name="tinId" Type="Int32" Nullable="false" />
     <Property Name="snilsId" Type="Int32" Nullable="false" />
-    <Property Name="name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="surname" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="patronymic" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
-    <Property Name="genderId" Type="Int32" Nullable="false" />
-    <Property Name="dateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="personalInfo" Type="Int32" />
     <NavigationProperty Name="BankBook" Relationship="Self.FK_BankBook_Client" FromRole="Client" ToRole="BankBook" />
-    <NavigationProperty Name="Gender" Relationship="Self.FK_Client_Gender" FromRole="Client" ToRole="Gender" />
-    <NavigationProperty Name="Passport" Relationship="Self.FK_Client_Passport" FromRole="Client" ToRole="Passport" />
+    <NavigationProperty Name="PersonalInfo1" Relationship="Self.FK_Client_PersonalInfo" FromRole="Client" ToRole="PersonalInfo" />
     <NavigationProperty Name="SNILS" Relationship="Self.FK_Client_SNILS" FromRole="Client" ToRole="SNILS" />
-    <NavigationProperty Name="TIN" Relationship="Self.FK_Client_TIN1" FromRole="Client" ToRole="TIN" />
+    <NavigationProperty Name="TIN" Relationship="Self.FK_Client_TIN" FromRole="Client" ToRole="TIN" />
   </EntityType>
   <EntityType Name="Counter">
     <Key>
@@ -109,7 +102,7 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="genderName" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Client" Relationship="Self.FK_Client_Gender" FromRole="Gender" ToRole="Client" />
+    <NavigationProperty Name="PersonalInfo" Relationship="Self.FK_PersonalInfo_Gender" FromRole="Gender" ToRole="PersonalInfo" />
   </EntityType>
   <EntityType Name="Ownership">
     <Key>
@@ -131,7 +124,7 @@
     <Property Name="dateOfIssue" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="divisionCode" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="placeOfBirth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Client" Relationship="Self.FK_Client_Passport" FromRole="Passport" ToRole="Client" />
+    <NavigationProperty Name="PersonalInfo" Relationship="Self.FK_PersonalInfo_Passport" FromRole="Passport" ToRole="PersonalInfo" />
   </EntityType>
   <EntityType Name="PaymentState">
     <Key>
@@ -140,6 +133,23 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="paymentStateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="TotalCheck" Relationship="Self.FK_TotalCheck_PaymentState" FromRole="PaymentState" ToRole="TotalCheck" />
+  </EntityType>
+  <EntityType Name="PersonalInfo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="phoneNumber" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="genderId" Type="Int32" Nullable="false" />
+    <Property Name="passportId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_Client_PersonalInfo" FromRole="PersonalInfo" ToRole="Client" />
+    <NavigationProperty Name="Gender" Relationship="Self.FK_PersonalInfo_Gender" FromRole="PersonalInfo" ToRole="Gender" />
+    <NavigationProperty Name="Passport" Relationship="Self.FK_PersonalInfo_Passport" FromRole="PersonalInfo" ToRole="Passport" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_PersonalInfo" FromRole="PersonalInfo" ToRole="User" />
   </EntityType>
   <EntityType Name="Proprietary">
     <Key>
@@ -171,6 +181,16 @@
     <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Accounting" Relationship="Self.FK_Check_Accounting" FromRole="ServiceCheck" ToRole="Accounting" />
   </EntityType>
+  <EntityType Name="Session">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="Int32" Nullable="false" />
+    <Property Name="sessionStart" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="authAttempts" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Session_User" FromRole="Session" ToRole="User" />
+  </EntityType>
   <EntityType Name="SNILS">
     <Key>
       <PropertyRef Name="id" />
@@ -198,7 +218,7 @@
     <Property Name="tinNumber" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="registrationDate" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="whoRegistered" Type="String" MaxLength="120" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Client" Relationship="Self.FK_Client_TIN1" FromRole="TIN" ToRole="Client" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_Client_TIN" FromRole="TIN" ToRole="Client" />
   </EntityType>
   <EntityType Name="TotalCheck">
     <Key>
@@ -233,6 +253,41 @@
     <Property Name="serviceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Service" Relationship="Self.FK_Service_TypeOfService" FromRole="TypeOfService" ToRole="Service" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="login" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="userStatusId" Type="Int32" Nullable="false" />
+    <Property Name="userRoleId" Type="Int32" Nullable="false" />
+    <Property Name="registrationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="personalInfoId" Type="Int32" Nullable="false" />
+    <Property Name="passwordLastChanged" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="PersonalInfo" Relationship="Self.FK_User_PersonalInfo" FromRole="User" ToRole="PersonalInfo" />
+    <NavigationProperty Name="Session" Relationship="Self.FK_Session_User" FromRole="User" ToRole="Session" />
+    <NavigationProperty Name="UserRole" Relationship="Self.FK_User_Role" FromRole="User" ToRole="UserRole" />
+    <NavigationProperty Name="UserStatus" Relationship="Self.FK_User_UserStatus" FromRole="User" ToRole="UserStatus" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="roleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="UserRole" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserStatus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="statusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_UserStatus" FromRole="UserStatus" ToRole="User" />
   </EntityType>
   <Association Name="FK_Accounting_BankBook">
     <End Role="BankBook" Type="Self.BankBook" Multiplicity="0..1" />
@@ -378,27 +433,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Client_Gender">
-    <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+  <Association Name="FK_Client_PersonalInfo">
+    <End Role="PersonalInfo" Type="Self.PersonalInfo" Multiplicity="0..1" />
     <End Role="Client" Type="Self.Client" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Gender">
+      <Principal Role="PersonalInfo">
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="Client">
-        <PropertyRef Name="genderId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Client_Passport">
-    <End Role="Passport" Type="Self.Passport" Multiplicity="1" />
-    <End Role="Client" Type="Self.Client" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Passport">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Client">
-        <PropertyRef Name="passportId" />
+        <PropertyRef Name="personalInfo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -414,7 +457,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Client_TIN1">
+  <Association Name="FK_Client_TIN">
     <End Role="TIN" Type="Self.TIN" Multiplicity="1" />
     <End Role="Client" Type="Self.Client" Multiplicity="*" />
     <ReferentialConstraint>
@@ -438,6 +481,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_PersonalInfo_Gender">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+    <End Role="PersonalInfo" Type="Self.PersonalInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PersonalInfo">
+        <PropertyRef Name="genderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonalInfo_Passport">
+    <End Role="Passport" Type="Self.Passport" Multiplicity="1" />
+    <End Role="PersonalInfo" Type="Self.PersonalInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Passport">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PersonalInfo">
+        <PropertyRef Name="passportId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_TotalCheck_PaymentState">
     <End Role="PaymentState" Type="Self.PaymentState" Multiplicity="1" />
     <End Role="TotalCheck" Type="Self.TotalCheck" Multiplicity="*" />
@@ -447,6 +514,18 @@
       </Principal>
       <Dependent Role="TotalCheck">
         <PropertyRef Name="paymentStateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_PersonalInfo">
+    <End Role="PersonalInfo" Type="Self.PersonalInfo" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PersonalInfo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="personalInfoId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -462,6 +541,42 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Session_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Session" Type="Self.Session" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Session">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="userRoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_UserStatus">
+    <End Role="UserStatus" Type="Self.UserStatus" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserStatus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="userStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="menshakova_publicUtilitiesEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Accounting" EntityType="Self.Accounting" />
     <EntitySet Name="Address" EntityType="Self.Address" />
@@ -474,15 +589,20 @@
     <EntitySet Name="Ownership" EntityType="Self.Ownership" />
     <EntitySet Name="Passport" EntityType="Self.Passport" />
     <EntitySet Name="PaymentState" EntityType="Self.PaymentState" />
+    <EntitySet Name="PersonalInfo" EntityType="Self.PersonalInfo" />
     <EntitySet Name="Proprietary" EntityType="Self.Proprietary" />
     <EntitySet Name="Service" EntityType="Self.Service" />
     <EntitySet Name="ServiceCheck" EntityType="Self.ServiceCheck" />
+    <EntitySet Name="Session" EntityType="Self.Session" />
     <EntitySet Name="SNILS" EntityType="Self.SNILS" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="TIN" EntityType="Self.TIN" />
     <EntitySet Name="TotalCheck" EntityType="Self.TotalCheck" />
     <EntitySet Name="TypeOfCounter" EntityType="Self.TypeOfCounter" />
     <EntitySet Name="TypeOfService" EntityType="Self.TypeOfService" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" />
+    <EntitySet Name="UserStatus" EntityType="Self.UserStatus" />
     <AssociationSet Name="FK_Accounting_BankBook" Association="Self.FK_Accounting_BankBook">
       <End Role="BankBook" EntitySet="BankBook" />
       <End Role="Accounting" EntitySet="Accounting" />
@@ -531,19 +651,15 @@
       <End Role="Benefit" EntitySet="Benefit" />
       <End Role="TotalCheck" EntitySet="TotalCheck" />
     </AssociationSet>
-    <AssociationSet Name="FK_Client_Gender" Association="Self.FK_Client_Gender">
-      <End Role="Gender" EntitySet="Gender" />
-      <End Role="Client" EntitySet="Client" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Client_Passport" Association="Self.FK_Client_Passport">
-      <End Role="Passport" EntitySet="Passport" />
+    <AssociationSet Name="FK_Client_PersonalInfo" Association="Self.FK_Client_PersonalInfo">
+      <End Role="PersonalInfo" EntitySet="PersonalInfo" />
       <End Role="Client" EntitySet="Client" />
     </AssociationSet>
     <AssociationSet Name="FK_Client_SNILS" Association="Self.FK_Client_SNILS">
       <End Role="SNILS" EntitySet="SNILS" />
       <End Role="Client" EntitySet="Client" />
     </AssociationSet>
-    <AssociationSet Name="FK_Client_TIN1" Association="Self.FK_Client_TIN1">
+    <AssociationSet Name="FK_Client_TIN" Association="Self.FK_Client_TIN">
       <End Role="TIN" EntitySet="TIN" />
       <End Role="Client" EntitySet="Client" />
     </AssociationSet>
@@ -551,13 +667,37 @@
       <End Role="TypeOfCounter" EntitySet="TypeOfCounter" />
       <End Role="Counter" EntitySet="Counter" />
     </AssociationSet>
+    <AssociationSet Name="FK_PersonalInfo_Gender" Association="Self.FK_PersonalInfo_Gender">
+      <End Role="Gender" EntitySet="Gender" />
+      <End Role="PersonalInfo" EntitySet="PersonalInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonalInfo_Passport" Association="Self.FK_PersonalInfo_Passport">
+      <End Role="Passport" EntitySet="Passport" />
+      <End Role="PersonalInfo" EntitySet="PersonalInfo" />
+    </AssociationSet>
     <AssociationSet Name="FK_TotalCheck_PaymentState" Association="Self.FK_TotalCheck_PaymentState">
       <End Role="PaymentState" EntitySet="PaymentState" />
       <End Role="TotalCheck" EntitySet="TotalCheck" />
     </AssociationSet>
+    <AssociationSet Name="FK_User_PersonalInfo" Association="Self.FK_User_PersonalInfo">
+      <End Role="PersonalInfo" EntitySet="PersonalInfo" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
     <AssociationSet Name="FK_Service_TypeOfService" Association="Self.FK_Service_TypeOfService">
       <End Role="TypeOfService" EntitySet="TypeOfService" />
       <End Role="Service" EntitySet="Service" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Session_User" Association="Self.FK_Session_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Session" EntitySet="Session" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_UserStatus" Association="Self.FK_User_UserStatus">
+      <End Role="UserStatus" EntitySet="UserStatus" />
+      <End Role="User" EntitySet="User" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

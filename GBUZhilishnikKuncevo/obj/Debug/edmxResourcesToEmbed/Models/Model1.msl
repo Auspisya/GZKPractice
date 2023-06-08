@@ -66,15 +66,9 @@
       <EntityTypeMapping TypeName="menshakova_publicUtilitiesModel.Client">
         <MappingFragment StoreEntitySet="Client">
           <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
-          <ScalarProperty Name="passportId" ColumnName="passportId" />
           <ScalarProperty Name="tinId" ColumnName="tinId" />
           <ScalarProperty Name="snilsId" ColumnName="snilsId" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="surname" ColumnName="surname" />
-          <ScalarProperty Name="patronymic" ColumnName="patronymic" />
-          <ScalarProperty Name="genderId" ColumnName="genderId" />
-          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="personalInfo" ColumnName="personalInfo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -126,6 +120,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="PersonalInfo">
+      <EntityTypeMapping TypeName="menshakova_publicUtilitiesModel.PersonalInfo">
+        <MappingFragment StoreEntitySet="PersonalInfo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="genderId" ColumnName="genderId" />
+          <ScalarProperty Name="passportId" ColumnName="passportId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Proprietary">
       <EntityTypeMapping TypeName="menshakova_publicUtilitiesModel.Proprietary">
         <MappingFragment StoreEntitySet="Proprietary">
@@ -152,6 +160,16 @@
           <ScalarProperty Name="accountingId" ColumnName="accountingId" />
           <ScalarProperty Name="totalPayble" ColumnName="totalPayble" />
           <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Session">
+      <EntityTypeMapping TypeName="menshakova_publicUtilitiesModel.Session">
+        <MappingFragment StoreEntitySet="Session">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="sessionStart" ColumnName="sessionStart" />
+          <ScalarProperty Name="authAttempts" ColumnName="authAttempts" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -213,6 +231,38 @@
         <MappingFragment StoreEntitySet="TypeOfService">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="serviceName" ColumnName="serviceName" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="menshakova_publicUtilitiesModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="userStatusId" ColumnName="userStatusId" />
+          <ScalarProperty Name="userRoleId" ColumnName="userRoleId" />
+          <ScalarProperty Name="registrationDate" ColumnName="registrationDate" />
+          <ScalarProperty Name="personalInfoId" ColumnName="personalInfoId" />
+          <ScalarProperty Name="passwordLastChanged" ColumnName="passwordLastChanged" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRole">
+      <EntityTypeMapping TypeName="menshakova_publicUtilitiesModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="roleName" ColumnName="roleName" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserStatus">
+      <EntityTypeMapping TypeName="menshakova_publicUtilitiesModel.UserStatus">
+        <MappingFragment StoreEntitySet="UserStatus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="statusName" ColumnName="statusName" />
           <ScalarProperty Name="description" ColumnName="description" />
         </MappingFragment>
       </EntityTypeMapping>

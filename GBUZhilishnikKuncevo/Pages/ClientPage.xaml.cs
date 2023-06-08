@@ -59,7 +59,7 @@ namespace GBUZhilishnikKuncevo.Pages
                     var itemsList = DBConnection.DBConnect.Client.ToList();
 
                     //Ищем совпадения в таблице по фамилии
-                    var searchResults = itemsList.Where(item => item.surname.ToLower().Contains(searchString)).ToList();
+                    var searchResults = itemsList.Where(item => item.PersonalInfo1.surname.ToLower().Contains(searchString)).ToList();
 
                     //Заполняем таблицу записями, где есть совпадения
                     DataClient.ItemsSource = searchResults.ToList();

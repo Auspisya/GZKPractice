@@ -51,16 +51,16 @@
                                         Binding="{Binding id}"
                                         Width="50"/>
                 <DataGridTextColumn Header="Фамилия"
-                                        Binding="{Binding surname}"
+                                        Binding="{Binding PersonalInfo1.surname}"
                                         Width="*"/>
                 <DataGridTextColumn Header="Имя"
-                                        Binding="{Binding name}"
+                                        Binding="{Binding PersonalInfo1.name}"
                                         Width="*"/>
                 <DataGridTextColumn Header="Отчество"
-                                        Binding="{Binding patronymic}"
+                                        Binding="{Binding PersonalInfo1.patronymic}"
                                         Width="*"/>
                 <DataGridTextColumn Header="Номер телефона"
-                                        Binding="{Binding phoneNumber}"
+                                        Binding="{Binding PersonalInfo1.phoneNumber}"
                                         Width="*"/>
                 <DataGridTemplateColumn Width="*">
                     <DataGridTemplateColumn.CellTemplate>

@@ -117,7 +117,7 @@ namespace GBUZhilishnikKuncevo.Pages
                     }
                     #endregion
                     //Ищем совпадения в таблице по фамилии
-                    var searchResults = clientData.Where(item => item.surname.ToLower().Contains(searchString)).ToList();
+                    var searchResults = clientData.Where(item => item.PersonalInfo1.surname.ToLower().Contains(searchString)).ToList();
 
                     //Заполняем таблицу записями, где есть совпадения
                     DataDebtors.ItemsSource = searchResults.ToList();

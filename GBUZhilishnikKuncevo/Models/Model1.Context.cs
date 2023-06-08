@@ -36,14 +36,19 @@ namespace GBUZhilishnikKuncevo.Models
         public virtual DbSet<Ownership> Ownership { get; set; }
         public virtual DbSet<Passport> Passport { get; set; }
         public virtual DbSet<PaymentState> PaymentState { get; set; }
+        public virtual DbSet<PersonalInfo> PersonalInfo { get; set; }
         public virtual DbSet<Proprietary> Proprietary { get; set; }
         public virtual DbSet<Service> Service { get; set; }
         public virtual DbSet<ServiceCheck> ServiceCheck { get; set; }
+        public virtual DbSet<Session> Session { get; set; }
         public virtual DbSet<SNILS> SNILS { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TIN> TIN { get; set; }
         public virtual DbSet<TotalCheck> TotalCheck { get; set; }
         public virtual DbSet<TypeOfCounter> TypeOfCounter { get; set; }
         public virtual DbSet<TypeOfService> TypeOfService { get; set; }
+        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<UserRole> UserRole { get; set; }
+        public virtual DbSet<UserStatus> UserStatus { get; set; }
     }
 }

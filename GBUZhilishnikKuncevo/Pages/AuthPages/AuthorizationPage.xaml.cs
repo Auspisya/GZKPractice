@@ -56,9 +56,9 @@ namespace GBUZhilishnikKuncevo.Pages.AuthPages
                     {
                         var _signIn = JsonConvert.DeserializeObject<SignIn>(responseContent);
 
-                        switch (_signIn.roleName)
+                        switch (_signIn.RoleUser)
                         {
-                            case "Администратор":
+                            case "Admin":
                                 MessageBox.Show("Авторизация прошла успешно!");
                                 Navigation.frameNav.Navigate(new WelcomePage());
                                 MenuNavigation.frameNav.Navigate(new MenuPage());
@@ -105,12 +105,20 @@ namespace GBUZhilishnikKuncevo.Pages.AuthPages
                 CBShowHidePassword.ToolTip = "Показать";
             }
         }
-
+        /// <summary>
+        /// Обновление пароля
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PsbPassword_PasswordChanged(object sender, RoutedEventArgs e)
         {
             password = PsbPassword.Password;
         }
-
+        /// <summary>
+        /// Обновление пароля
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TxbPassword_TextChanged(object sender, TextChangedEventArgs e)
         {
             password = TxbPassword.Text;

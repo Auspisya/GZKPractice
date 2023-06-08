@@ -31,15 +31,15 @@ namespace GBUZhilishnikKuncevo.Pages
 
             #region Заполняем элементы управления данными из БД
             // Заполняем текстовые блоки готовыми данными из БД
-            TxbName.Text = client.name.ToString();
-            TxbSurname.Text = client.surname.ToString();
-            if (client.patronymic == "") { TxbPatronymic.Text = ""; } else { TxbPatronymic.Text = client.patronymic.ToString(); }
-            TxbDivisionCode.Text = client.Passport.divisionCode.ToString();
-            TxbPassportIssuedBy.Text = client.Passport.passportIssuedBy.ToString();
-            TxbPassportNumber.Text = client.Passport.passportNumber.ToString();
-            TxbPassportSeries.Text = client.Passport.passportSeries.ToString();
-            TxbPhoneNumber.Text = client.phoneNumber.ToString();
-            TxbPlaceOfBirth.Text = client.Passport.placeOfBirth.ToString();
+            TxbName.Text = client.PersonalInfo1.name.ToString();
+            TxbSurname.Text = client.PersonalInfo1.surname.ToString();
+            if (client.PersonalInfo1.patronymic == "") { TxbPatronymic.Text = ""; } else { TxbPatronymic.Text = client.PersonalInfo1.patronymic.ToString(); }
+            TxbDivisionCode.Text = client.PersonalInfo1.Passport.divisionCode.ToString();
+            TxbPassportIssuedBy.Text = client.PersonalInfo1.Passport.passportIssuedBy.ToString();
+            TxbPassportNumber.Text = client.PersonalInfo1.Passport.passportNumber.ToString();
+            TxbPassportSeries.Text = client.PersonalInfo1.Passport.passportSeries.ToString();
+            TxbPhoneNumber.Text = client.PersonalInfo1.phoneNumber.ToString();
+            TxbPlaceOfBirth.Text = client.PersonalInfo1.Passport.placeOfBirth.ToString();
             TxbTIN.Text = client.TIN.tinNumber.ToString();
             TxbWhoRegisteredTIN.Text = client.TIN.whoRegistered.ToString();
             TxbSNILS.Text = client.SNILS.snilsNumber.ToString();
@@ -47,10 +47,10 @@ namespace GBUZhilishnikKuncevo.Pages
             CmbGender.DisplayMemberPath = "genderName";
             CmbGender.SelectedValuePath = "id";
             CmbGender.ItemsSource = DBConnection.DBConnect.Gender.ToList();
-            CmbGender.Text = client.Gender.genderName.ToString();
+            CmbGender.Text = client.PersonalInfo1.Gender.genderName.ToString();
             //Заполняем дата-пикеры готовыми данными из БД
-            DPDateOfBirth.Text = client.dateOfBirth.ToString();
-            DPDateOfIssue.Text = client.Passport.dateOfIssue.ToString();
+            DPDateOfBirth.Text = client.PersonalInfo1.dateOfBirth.ToString();
+            DPDateOfIssue.Text = client.PersonalInfo1.Passport.dateOfIssue.ToString();
             DPTINRegistrationDate.Text = client.TIN.registrationDate.ToString();
             DPSNILSRegistationDate.Text = client.SNILS.registrationDate.ToString();
             #endregion
@@ -85,18 +85,18 @@ namespace GBUZhilishnikKuncevo.Pages
                     menshakova_publicUtilitiesEntities context = new menshakova_publicUtilitiesEntities();
                     #region Берем значения из элементов управления и вносим их в базу данных
                     var client = context.Client.Where(item => item.id == clientId).FirstOrDefault();
-                    client.surname = TxbSurname.Text;
-                    client.name = TxbName.Text;
-                    client.patronymic = TxbPatronymic.Text;
-                    client.phoneNumber = TxbPhoneNumber.Text;
-                    client.genderId = (CmbGender.SelectedItem as Gender).id;
-                    client.dateOfBirth = DateTime.Parse(DPDateOfBirth.Text);
-                    client.Passport.placeOfBirth = TxbPlaceOfBirth.Text;
-                    client.Passport.passportNumber = TxbPassportNumber.Text;
-                    client.Passport.passportSeries = TxbPassportSeries.Text;
-                    client.Passport.passportIssuedBy = TxbPassportIssuedBy.Text;
-                    client.Passport.divisionCode = TxbDivisionCode.Text;
-                    client.Passport.dateOfIssue = DateTime.Parse(DPDateOfIssue.Text);
+                    client.PersonalInfo1.surname = TxbSurname.Text;
+                    client.PersonalInfo1.name = TxbName.Text;
+                    client.PersonalInfo1.patronymic = TxbPatronymic.Text;
+                    client.PersonalInfo1.phoneNumber = TxbPhoneNumber.Text;
+                    client.PersonalInfo1.genderId = (CmbGender.SelectedItem as Gender).id;
+                    client.PersonalInfo1.dateOfBirth = DateTime.Parse(DPDateOfBirth.Text);
+                    client.PersonalInfo1.Passport.placeOfBirth = TxbPlaceOfBirth.Text;
+                    client.PersonalInfo1.Passport.passportNumber = TxbPassportNumber.Text;
+                    client.PersonalInfo1.Passport.passportSeries = TxbPassportSeries.Text;
+                    client.PersonalInfo1.Passport.passportIssuedBy = TxbPassportIssuedBy.Text;
+                    client.PersonalInfo1.Passport.divisionCode = TxbDivisionCode.Text;
+                    client.PersonalInfo1.Passport.dateOfIssue = DateTime.Parse(DPDateOfIssue.Text);
                     client.TIN.tinNumber = TxbTIN.Text;
                     client.TIN.whoRegistered = TxbWhoRegisteredTIN.Text;
                     client.TIN.registrationDate = DateTime.Parse(DPTINRegistrationDate.Text);

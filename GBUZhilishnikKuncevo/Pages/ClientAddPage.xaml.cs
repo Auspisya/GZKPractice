@@ -93,7 +93,7 @@ namespace GBUZhilishnikKuncevo.Pages
                             registrationDate = DateTime.Parse(DPTINRegistrationDate.Text)
                         };
 
-                        Client client = new Client()
+                        PersonalInfo info = new PersonalInfo()
                         {
                             Gender = CmbGender.SelectedItem as Gender,
                             name = TxbName.Text,
@@ -101,9 +101,14 @@ namespace GBUZhilishnikKuncevo.Pages
                             patronymic = TxbPatronymic.Text,
                             phoneNumber = TxbPhoneNumber.Text,
                             dateOfBirth = DateTime.Parse(DPDateOfBirth.Text),
-                            passportId = passport.id,
+                            passportId = passport.id
+                        };
+
+                        Client client = new Client()
+                        {
                             snilsId = snils.id,
-                            tinId = tin.id
+                            tinId = tin.id,
+                            personalInfo = info.id
                         };
                         DBConnection.DBConnect.Client.Add(client);
                         DBConnection.DBConnect.Passport.Add(passport);

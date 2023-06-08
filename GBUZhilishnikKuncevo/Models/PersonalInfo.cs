@@ -12,23 +12,30 @@ namespace GBUZhilishnikKuncevo.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Client
+    public partial class PersonalInfo
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Client()
+        public PersonalInfo()
         {
-            this.BankBook = new HashSet<BankBook>();
+            this.Client = new HashSet<Client>();
+            this.User = new HashSet<User>();
         }
     
         public int id { get; set; }
-        public int tinId { get; set; }
-        public int snilsId { get; set; }
-        public Nullable<int> personalInfo { get; set; }
-    
+        public string surname { get; set; }
+        public string name { get; set; }
+        public string patronymic { get; set; }
+        public string phoneNumber { get; set; }
+        public System.DateTime dateOfBirth { get; set; }
+        public int genderId { get; set; }
+        public int passportId { get; set; }
+        public string fullName => $"{surname} {name} {patronymic}";
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BankBook> BankBook { get; set; }
-        public virtual PersonalInfo PersonalInfo1 { get; set; }
-        public virtual SNILS SNILS { get; set; }
-        public virtual TIN TIN { get; set; }
+        public virtual ICollection<Client> Client { get; set; }
+        public virtual Gender Gender { get; set; }
+        public virtual Passport Passport { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User> User { get; set; }
     }
 }

@@ -8,7 +8,7 @@ namespace GBUZhilishnikKuncevo.Models
 {
     internal class SignIn
     {
-        public string roleName { get; set; }
-        public string id { get; set; }
+        public string RoleUser { get; set; }
+        public string IdUser { get; set; }
     }
 }

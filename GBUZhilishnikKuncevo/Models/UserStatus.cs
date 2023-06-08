@@ -12,23 +12,19 @@ namespace GBUZhilishnikKuncevo.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Client
+    public partial class UserStatus
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Client()
+        public UserStatus()
         {
-            this.BankBook = new HashSet<BankBook>();
+            this.User = new HashSet<User>();
         }
     
         public int id { get; set; }
-        public int tinId { get; set; }
-        public int snilsId { get; set; }
-        public Nullable<int> personalInfo { get; set; }
+        public string statusName { get; set; }
+        public string description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BankBook> BankBook { get; set; }
-        public virtual PersonalInfo PersonalInfo1 { get; set; }
-        public virtual SNILS SNILS { get; set; }
-        public virtual TIN TIN { get; set; }
+        public virtual ICollection<User> User { get; set; }
     }
 }

@@ -27,16 +27,16 @@ namespace GBUZhilishnikKuncevo.Pages
             InitializeComponent();
 
             #region Наполняем текстовые блоки информацией из БД
-            if (client.patronymic == "") { TxbFullName.Text = client.surname.ToString() + " " + client.name.ToString(); } 
-            else { TxbFullName.Text = client.surname.ToString() + " " + client.name.ToString() + " " + client.patronymic.ToString(); }
-            TxbNumPassport.Text = client.Passport.passportNumber.ToString();
-            TxbDateOfBirth.Text = client.dateOfBirth.ToShortDateString();
-            TxbGender.Text = client.Gender.genderName.ToString();
-            TxbPassportSeries.Text = client.Passport.passportSeries.ToString();
-            TxbPassportIssuedBy.Text = client.Passport.passportIssuedBy.ToString();
-            TxbDateOfIssue.Text = client.Passport.dateOfIssue.ToShortDateString();
-            TxbDivisionCode.Text = client.Passport.divisionCode.ToString();
-            TxbPlaceOfBirth.Text = client.Passport.placeOfBirth.ToString();
+            if (client.PersonalInfo1.patronymic == "") { TxbFullName.Text = client.PersonalInfo1.surname.ToString() + " " + client.PersonalInfo1.name.ToString(); } 
+            else { TxbFullName.Text = client.PersonalInfo1.surname.ToString() + " " + client.PersonalInfo1.name.ToString() + " " + client.PersonalInfo1.patronymic.ToString(); }
+            TxbNumPassport.Text = client.PersonalInfo1.Passport.passportNumber.ToString();
+            TxbDateOfBirth.Text = client.PersonalInfo1.dateOfBirth.ToShortDateString();
+            TxbGender.Text = client.PersonalInfo1.Gender.genderName.ToString();
+            TxbPassportSeries.Text = client.PersonalInfo1.Passport.passportSeries.ToString();
+            TxbPassportIssuedBy.Text = client.PersonalInfo1.Passport.passportIssuedBy.ToString();
+            TxbDateOfIssue.Text = client.PersonalInfo1.Passport.dateOfIssue.ToShortDateString();
+            TxbDivisionCode.Text = client.PersonalInfo1.Passport.divisionCode.ToString();
+            TxbPlaceOfBirth.Text = client.PersonalInfo1.Passport.placeOfBirth.ToString();
             TxbWhoRegisteredTIN.Text = client.TIN.whoRegistered.ToString();
             TxbTINRegistrationDate.Text = client.TIN.registrationDate.ToShortDateString();
             TxbSNILSRegistrationDate.Text = client.SNILS.registrationDate.ToShortDateString();

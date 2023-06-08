@@ -40,7 +40,7 @@ namespace GBUZhilishnikKuncevo.Pages
                         $"этаж {bankBook.Apartment.Address.floorNumber}, кв. {bankBook.Apartment.Address.apartmentNumber}";
             }
             TxbApartmentArea.Text = bankBook.Apartment.apartmentArea.ToString();
-            TxbClient.Text = bankBook.Client.fullName.ToString();
+            TxbClient.Text = bankBook.Client.PersonalInfo1.fullName.ToString();
             TxbNumberOfResidents.Text = bankBook.Apartment.numberOfResidents.ToString();
             TxbOrganization.Text = bankBook.organization.ToString();
             TxbOwnership.Text = bankBook.Ownership.typeName.ToString();

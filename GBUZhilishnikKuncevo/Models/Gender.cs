@@ -17,13 +17,13 @@ namespace GBUZhilishnikKuncevo.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Gender()
         {
-            this.Client = new HashSet<Client>();
+            this.PersonalInfo = new HashSet<PersonalInfo>();
         }
     
         public int id { get; set; }
         public string genderName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Client> Client { get; set; }
+        public virtual ICollection<PersonalInfo> PersonalInfo { get; set; }
     }
 }

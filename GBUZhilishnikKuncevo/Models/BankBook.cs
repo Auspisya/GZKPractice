@@ -28,8 +28,6 @@ namespace GBUZhilishnikKuncevo.Models
         public int proprietaryId { get; set; }
         public int typeOfOwnershipId { get; set; }
         public int clientId { get; set; }
-
-        public string fullName => $"{Client.surname} {Client.name} {Client.patronymic}";
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Accounting> Accounting { get; set; }

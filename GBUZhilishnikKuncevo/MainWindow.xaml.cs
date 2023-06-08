@@ -1,9 +1,12 @@
 ﻿using GBUZhilishnikKuncevo.Classes;
+using GBUZhilishnikKuncevo.Models;
 using GBUZhilishnikKuncevo.Pages;
 using GBUZhilishnikKuncevo.Pages.AuthPages;
 using GBUZhilishnikKuncevo.Pages.MenuPages;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +27,7 @@ namespace GBUZhilishnikKuncevo
     /// </summary>
     public partial class MainWindow : Window
     {
+        public int UserId { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -31,6 +35,30 @@ namespace GBUZhilishnikKuncevo
             MainFrame.Navigate(new AuthorizationPage());
             MenuNavigation.frameNav = MenuFrame;
             MenuFrame.Navigate(new MenuAuthPage());
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            //AuthorizationPage authorizationPage = new AuthorizationPage();
+            int userId = UserId;
+            try
+            {
+                if (userId == 0)
+                {
+
+                }
+                else
+                {
+                    menshakova_publicUtilitiesEntities context = new menshakova_publicUtilitiesEntities();
+                    var user = context.User.Where(item => item.id == userId).FirstOrDefault();
+                    user.userStatusId = 2;
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

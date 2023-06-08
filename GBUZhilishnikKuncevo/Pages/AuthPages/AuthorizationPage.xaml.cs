@@ -32,7 +32,6 @@ namespace GBUZhilishnikKuncevo.Pages.AuthPages
         {
             InitializeComponent();
         }
-
         /// <summary>
         /// Выполнить вход в систему
         /// </summary>
@@ -55,7 +54,9 @@ namespace GBUZhilishnikKuncevo.Pages.AuthPages
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         var _signIn = JsonConvert.DeserializeObject<SignIn>(responseContent);
-
+                        int userId = _signIn.IdUser;
+                        var MainWindow = new MainWindow();
+                        MainWindow.UserId = userId;
                         switch (_signIn.RoleUser)
                         {
                             case "Admin":

@@ -9,7 +9,8 @@
         Title="ГБУ Жилищник Района Кунцево" MinHeight="600" MinWidth="1200"
         MaxHeight="600" MaxWidth="1200"
         Icon="./Icons/gerb_kuncevo_moskva.jpg"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Closing="Window_Closing">
     <Grid Background="#EFEFEF">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>

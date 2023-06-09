@@ -20,19 +20,20 @@
             <GroupBox Style="{StaticResource MaterialDesignHeaderedContentControl}"
                       Header="Логин:"
                       FontSize="20"
-                      Margin="5"
+                      Margin="5, 5, 5, 11"
                       Width="250">
                 <TextBox Name="TxbLogin"
                          Style="{StaticResource MaterialDesignTextBox}"
                          Width="250"
                          CaretBrush="#FF0850A4"
                          SelectionBrush="#FF0850A4"
-                         VerticalAlignment="Top"/>
+                         VerticalAlignment="Top"
+                         MaxLength="25"/>
             </GroupBox>
             <GroupBox Style="{StaticResource MaterialDesignHeaderedContentControl}"
                       Header="Пароль:"
                       FontSize="20"
-                      Margin="5"
+                      Margin="5, 6, 5, 5"
                       Width="250">
                 <TextBox Name="TxbPassword"
                          Style="{StaticResource MaterialDesignTextBox}"
@@ -41,6 +42,7 @@
                          SelectionBrush="#FF0850A4"
                          VerticalAlignment="Top"
                          Visibility="Hidden"
+                         MaxLength="25"
                          TextChanged="TxbPassword_TextChanged"/>
             </GroupBox>
             <Button Name="BtnLogin"
@@ -55,10 +57,11 @@
         <GroupBox Style="{StaticResource MaterialDesignHeaderedContentControl}"
                   Header="Пароль:"
                   FontSize="20"
-                  Margin="0, 217, 0, 0"
+                  Margin="0, 225, 0, 0"
                   Width="250">
             <PasswordBox Name="PsbPassword" 
                          Width="250"
+                         MaxLength="25"
                          CaretBrush="#FF0850A4"
                          SelectionBrush="#FF0850A4"
                          VerticalAlignment="Top"

@@ -64,7 +64,6 @@ namespace GBUZhilishnikKuncevo.Pages.AdminPages
         {
             PasswordChangePage.UserId = UserId;
             Navigation.frameNav.Navigate(new PasswordChangePage());
-            MenuNavigation.frameNav.Navigate(new MenuAuthPage());
         }
 
         private void CBShowPassportInfo_Click(object sender, RoutedEventArgs e)

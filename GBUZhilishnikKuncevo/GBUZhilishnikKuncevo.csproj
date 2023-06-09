@@ -105,6 +105,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AdminPages\AdminProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AuthPages\AuthorizationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -166,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\MenuPages\MenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SuperAdminPages\SuperAdminProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -287,6 +295,9 @@
     <Compile Include="Pages\AccountingPage.xaml.cs">
       <DependentUpon>AccountingPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AdminPages\AdminProfilePage.xaml.cs">
+      <DependentUpon>AdminProfilePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AuthPages\AuthorizationPage.xaml.cs">
       <DependentUpon>AuthorizationPage.xaml</DependentUpon>
     </Compile>
@@ -334,6 +345,9 @@
     </Compile>
     <Compile Include="Pages\MenuPages\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SuperAdminPages\SuperAdminProfilePage.xaml.cs">
+      <DependentUpon>SuperAdminProfilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\TotalCheckAddPage.xaml.cs">
       <DependentUpon>TotalCheckAddPage.xaml</DependentUpon>
@@ -404,6 +418,7 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

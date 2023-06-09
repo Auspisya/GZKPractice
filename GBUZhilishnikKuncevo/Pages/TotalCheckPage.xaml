@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:GBUZhilishnikKuncevo.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Чеки">
+      Title="Полная ежемесячная сумма к оплате за период">
 
     <Grid Background="White">
         <Button Name="BtnBack"

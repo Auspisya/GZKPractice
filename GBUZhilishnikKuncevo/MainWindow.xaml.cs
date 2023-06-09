@@ -27,7 +27,8 @@ namespace GBUZhilishnikKuncevo
     /// </summary>
     public partial class MainWindow : Window
     {
-        public int UserId { get; set; }
+        public static int UserId;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -37,6 +38,11 @@ namespace GBUZhilishnikKuncevo
             MenuFrame.Navigate(new MenuAuthPage());
         }
 
+        /// <summary>
+        /// Делает пользователя инактивным при закрытии приложения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             //AuthorizationPage authorizationPage = new AuthorizationPage();

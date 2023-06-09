@@ -55,8 +55,9 @@ namespace GBUZhilishnikKuncevo.Pages.AuthPages
                     {
                         var _signIn = JsonConvert.DeserializeObject<SignIn>(responseContent);
                         int userId = _signIn.IdUser;
-                        var MainWindow = new MainWindow();
-                        MainWindow.UserId = userId;
+                        //var MainWindow = new MainWindow();
+                        MainWindow.UserId = userId; // так вот он какой static
+                        MenuPage.Role = _signIn.RoleUser;
                         switch (_signIn.RoleUser)
                         {
                             case "Admin":

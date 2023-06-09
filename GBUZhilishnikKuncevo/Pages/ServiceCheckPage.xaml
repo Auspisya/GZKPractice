@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:GBUZhilishnikKuncevo.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Квитанции по услугам">
+      Title="К оплате за показания">
 
     <Grid Background="White">
         <TextBox Name="TxbSearch"
@@ -35,7 +35,7 @@
                 HorizontalAlignment="Right"
                 Margin="0, 0, 0, 0"/>
         <Button Name="BtnTotalCheck"
-                Content="Чеки"
+                Content="Сумма к оплате за период"
                 Click="BtnTotalCheck_Click"
                 Foreground="#0850A4"
                 Style="{StaticResource MaterialDesignFlatButton}"

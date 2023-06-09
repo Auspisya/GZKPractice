@@ -1,5 +1,6 @@
 ﻿using GBUZhilishnikKuncevo.Classes;
 using GBUZhilishnikKuncevo.Models;
+using GBUZhilishnikKuncevo.Pages.AdminPages;
 using GBUZhilishnikKuncevo.Pages.MenuPages;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -54,9 +55,10 @@ namespace GBUZhilishnikKuncevo.Pages.AuthPages
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         var _signIn = JsonConvert.DeserializeObject<SignIn>(responseContent);
-                        int userId = _signIn.IdUser;
+                        int userId = _signIn.IdUser; // Да, это глупо, но чтобы наверняка
                         //var MainWindow = new MainWindow();
-                        MainWindow.UserId = userId; // так вот он какой static
+                        MainWindow.UserId = userId; // Так вот он какой static
+                        AdminProfilePage.UserId = userId;
                         MenuPage.Role = _signIn.RoleUser;
                         switch (_signIn.RoleUser)
                         {

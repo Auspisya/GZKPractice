@@ -113,6 +113,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AuthPages\PasswordChangePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\BankBookAddPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -301,6 +305,9 @@
     <Compile Include="Pages\AuthPages\AuthorizationPage.xaml.cs">
       <DependentUpon>AuthorizationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AuthPages\PasswordChangePage.xaml.cs">
+      <DependentUpon>PasswordChangePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\BankBookAddPage.xaml.cs">
       <DependentUpon>BankBookAddPage.xaml</DependentUpon>
     </Compile>
@@ -417,6 +424,8 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Pages\AdminPages\Resources\id.png" />
+    <Resource Include="Pages\AdminPages\Resources\user.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -62,7 +62,9 @@ namespace GBUZhilishnikKuncevo.Pages.AdminPages
 
         private void BtnChangePassword_Click(object sender, RoutedEventArgs e)
         {
-
+            PasswordChangePage.UserId = UserId;
+            Navigation.frameNav.Navigate(new PasswordChangePage());
+            MenuNavigation.frameNav.Navigate(new MenuAuthPage());
         }
 
         private void CBShowPassportInfo_Click(object sender, RoutedEventArgs e)
@@ -73,6 +75,8 @@ namespace GBUZhilishnikKuncevo.Pages.AdminPages
                 SPPassportInfo.Height = 430;
                 SPPassportInfo.Visibility = Visibility.Visible;
                 ImageId.Visibility = Visibility.Hidden;
+                ImageId.Height = 0;
+                ImageId.Width = 0;
                 CBShowPassportInfo.ToolTip = "Скрыть";
             }
             else
@@ -80,6 +84,8 @@ namespace GBUZhilishnikKuncevo.Pages.AdminPages
                 SPPassportInfo.Height = 20;
                 SPPassportInfo.Visibility = Visibility.Hidden;
                 ImageId.Visibility = Visibility.Visible;
+                ImageId.Height = 250;
+                ImageId.Width = 250;
                 CBShowPassportInfo.ToolTip = "Показать";
             }
         }

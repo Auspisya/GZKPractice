@@ -60,16 +60,28 @@ namespace GBUZhilishnikKuncevo.Pages.AuthPages
                         MainWindow.UserId = userId; // Так вот он какой static
                         AdminProfilePage.UserId = userId;
                         MenuPage.Role = _signIn.RoleUser;
-                        switch (_signIn.RoleUser)
+
+                        menshakova_publicUtilitiesEntities context = new menshakova_publicUtilitiesEntities();
+                        var user = context.User.Where(item => item.id == userId).FirstOrDefault();
+                        if (user.passwordLastChanged == user.registrationDate || (DateTime.Now - user.passwordLastChanged).Days >= 30)
                         {
-                            case "Admin":
-                                MessageBox.Show("Авторизация прошла успешно!");
-                                Navigation.frameNav.Navigate(new WelcomePage());
-                                MenuNavigation.frameNav.Navigate(new MenuPage());
-                                break;
-                            default:
-                                MessageBox.Show("Неверная обработка данных");
-                                break;
+                            MessageBox.Show("Пришло время менять пароль");
+                            Navigation.frameNav.Navigate(new PasswordChangePage());
+                            MenuNavigation.frameNav.Navigate(new MenuAuthPage());
+                        }
+                        else 
+                        { 
+                            switch (_signIn.RoleUser)
+                            {
+                                case "Admin":
+                                    MessageBox.Show("Авторизация прошла успешно!");
+                                    Navigation.frameNav.Navigate(new WelcomePage());
+                                    MenuNavigation.frameNav.Navigate(new MenuPage());
+                                    break;
+                                default:
+                                    MessageBox.Show("Неверная обработка данных");
+                                    break;
+                            }
                         }
                     }
                     else

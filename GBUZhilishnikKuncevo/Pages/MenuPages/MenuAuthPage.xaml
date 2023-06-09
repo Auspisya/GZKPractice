@@ -9,9 +9,12 @@
       Title="Меню">
 
     <Grid Background="White">
-        <Image Source="./Resources/login.png"
-               Height="230"
+
+        <Image Height="230"
                Width="230"
-               Margin="0, 0, 20, 0"/>
+               Margin="0, 0, 0, 20"
+               xmlns:gif="http://wpfanimatedgif.codeplex.com"
+               gif:ImageBehavior.AnimatedSource="./Resources/password.gif"
+               gif:ImageBehavior.RepeatBehavior="100x"/>
     </Grid>
 </Page>

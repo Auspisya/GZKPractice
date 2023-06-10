@@ -77,10 +77,14 @@ namespace GBUZhilishnikKuncevo.Pages.SuperAdminPages
             UserData.ItemsSource = null;
             UserData.ItemsSource = DBConnection.DBConnect.User.ToList();
         }
-
+        /// <summary>
+        /// Переход на страницу добавления пользователя
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            Navigation.frameNav.Navigate(new UserAddPage());
         }
 
         private void BtnSessionPage_Click(object sender, RoutedEventArgs e)
@@ -96,10 +100,14 @@ namespace GBUZhilishnikKuncevo.Pages.SuperAdminPages
         {
             Navigation.frameNav.Navigate(new UserInfoPage((sender as Button).DataContext as User));
         }
-
+        /// <summary>
+        /// Переход на страниу редактирования пользователя
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnEditInfo_Click(object sender, RoutedEventArgs e)
         {
-
+            Navigation.frameNav.Navigate(new UserEditPage((sender as Button).DataContext as User));
         }
         /// <summary>
         /// Удаление пользователя

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GBUZhilishnikKuncevo.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace GBUZhilishnikKuncevo.Pages.SuperAdminPages
     /// </summary>
     public partial class UserEditPage : Page
     {
-        public UserEditPage()
+        public UserEditPage(User user)
         {
             InitializeComponent();
         }

@@ -284,8 +284,8 @@ namespace GBUZhilishnikKuncevo.Pages.AuthPages
         /// Вычисление значения MD5-хэша
         /// </summary>
         /// <param name="input"></param>
-        /// <returns></returns>
-        static string GetMD5Hash(string input)
+        /// <returns>Хэшированный пароль</returns>
+        public static string GetMD5Hash(string input)
         {
             using (MD5 md5 = MD5.Create())
             {

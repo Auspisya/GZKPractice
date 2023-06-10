@@ -209,7 +209,7 @@
                               FontSize="20"
                               Margin="5, 5, 5, 5">
                         <PasswordBox Name="PsbPassword"
-                                     Margin="-512, 0, 0, 0"
+                                     Margin="-514, 0, 0, 0"
                                      Width="250"
                                      MaxLength="25"
                                      CaretBrush="#FF0850A4"
@@ -220,7 +220,7 @@
                 <GroupBox Style="{StaticResource MaterialDesignHeaderedContentControl}"
                           Header="Пароль:"
                           FontSize="20"
-                          Margin="-512, -67, 5, 5"
+                          Margin="-511, -67, 5, 5"
                           Width="250">
                         <TextBox Name="TxbPassword"
                                  Style="{StaticResource MaterialDesignTextBox}"

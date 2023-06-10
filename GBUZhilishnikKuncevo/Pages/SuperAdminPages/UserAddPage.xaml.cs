@@ -101,7 +101,7 @@ namespace GBUZhilishnikKuncevo.Pages.SuperAdminPages
                 TxbPassportNumber.Text == "" || TxbPassportSeries.Text == "" ||
                 TxbPhoneNumber.Text == "" || TxbPlaceOfBirth.Text == "" || TxbSurname.Text == "" ||
                 CmbGender.Text == "" || DPDateOfBirth.Text == "" ||
-                DPDateOfIssue.Text == "" || TxbLogin.Text == "" || PsbPassword.Password == "" || CmbRole.Text == "")
+                DPDateOfIssue.Text == "" || TxbLogin.Text == "" || password == "" || CmbRole.Text == "")
             {
                 MessageBox.Show("Нужно заполнить все поля!",
                     "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);

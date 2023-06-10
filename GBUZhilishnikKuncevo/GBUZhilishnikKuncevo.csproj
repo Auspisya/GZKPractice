@@ -180,7 +180,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\SuperAdminPages\SessionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\SuperAdminPages\SuperAdminProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SuperAdminPages\UserAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SuperAdminPages\UserEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SuperAdminPages\UserInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SuperAdminPages\UserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -356,8 +376,23 @@
     <Compile Include="Pages\MenuPages\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SuperAdminPages\SessionPage.xaml.cs">
+      <DependentUpon>SessionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SuperAdminPages\SuperAdminProfilePage.xaml.cs">
       <DependentUpon>SuperAdminProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SuperAdminPages\UserAddPage.xaml.cs">
+      <DependentUpon>UserAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SuperAdminPages\UserEditPage.xaml.cs">
+      <DependentUpon>UserEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SuperAdminPages\UserInfoPage.xaml.cs">
+      <DependentUpon>UserInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SuperAdminPages\UserPage.xaml.cs">
+      <DependentUpon>UserPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\TotalCheckAddPage.xaml.cs">
       <DependentUpon>TotalCheckAddPage.xaml</DependentUpon>
@@ -427,9 +462,10 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Pages\SuperAdminPages\Resources\user.png" />
+    <Resource Include="Pages\SuperAdminPages\Resources\id.gif" />
     <Resource Include="Pages\MenuPages\Resources\password.gif" />
     <Resource Include="Pages\AdminPages\Resources\id.gif" />
-    <Resource Include="Pages\AdminPages\Resources\id.png" />
     <Resource Include="Pages\AdminPages\Resources\user.png" />
   </ItemGroup>
   <ItemGroup />

@@ -43,6 +43,11 @@ namespace GBUZhilishnikKuncevo.Pages.AdminPages
             TxbUserRole.Text = "Роль: " + user.UserRole.roleName.ToString();
         }
 
+        /// <summary>
+        /// Выход из профиля
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnLogOut_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Вы точно хотите выйти?", "Уведомление", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
@@ -59,13 +64,21 @@ namespace GBUZhilishnikKuncevo.Pages.AdminPages
                 context.SaveChanges();
             }
         }
-
+        /// <summary>
+        /// Переход на страницу смены пароля
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnChangePassword_Click(object sender, RoutedEventArgs e)
         {
             PasswordChangePage.UserId = UserId;
             Navigation.frameNav.Navigate(new PasswordChangePage());
         }
-
+        /// <summary>
+        /// Показать/скрыть паспортные данные
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CBShowPassportInfo_Click(object sender, RoutedEventArgs e)
         {
             var checkBox = sender as CheckBox;

@@ -2,6 +2,7 @@
 using GBUZhilishnikKuncevo.Models;
 using GBUZhilishnikKuncevo.Pages.AdminPages;
 using GBUZhilishnikKuncevo.Pages.MenuPages;
+using GBUZhilishnikKuncevo.Pages.SuperAdminPages;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
@@ -59,6 +60,7 @@ namespace GBUZhilishnikKuncevo.Pages.AuthPages
                         //var MainWindow = new MainWindow();
                         MainWindow.UserId = userId; // Так вот он какой static
                         AdminProfilePage.UserId = userId;
+                        SuperAdminProfilePage.UserId = userId;
                         MenuPage.Role = _signIn.RoleUser;
 
                         menshakova_publicUtilitiesEntities context = new menshakova_publicUtilitiesEntities();
@@ -74,6 +76,11 @@ namespace GBUZhilishnikKuncevo.Pages.AuthPages
                             switch (_signIn.RoleUser)
                             {
                                 case "Admin":
+                                    MessageBox.Show("Авторизация прошла успешно!");
+                                    Navigation.frameNav.Navigate(new WelcomePage());
+                                    MenuNavigation.frameNav.Navigate(new MenuPage());
+                                    break;
+                                case "SuperAdmin":
                                     MessageBox.Show("Авторизация прошла успешно!");
                                     Navigation.frameNav.Navigate(new WelcomePage());
                                     MenuNavigation.frameNav.Navigate(new MenuPage());

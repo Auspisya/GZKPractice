@@ -62,12 +62,13 @@ namespace GBUZhilishnikKuncevo.Pages.AuthPages
                         AdminProfilePage.UserId = userId;
                         SuperAdminProfilePage.UserId = userId;
                         MenuPage.Role = _signIn.RoleUser;
+                        PasswordChangePage.UserId = userId;
 
                         menshakova_publicUtilitiesEntities context = new menshakova_publicUtilitiesEntities();
                         var user = context.User.Where(item => item.id == userId).FirstOrDefault();
                         if (user.passwordLastChanged == user.registrationDate || (DateTime.Now - user.passwordLastChanged).Days >= 30)
                         {
-                            MessageBox.Show("Пришло время менять пароль");
+                            MessageBox.Show("Пароль устарел");
                             Navigation.frameNav.Navigate(new PasswordChangePage());
                             MenuNavigation.frameNav.Navigate(new MenuAuthPage());
                         }
